@@ -16,15 +16,25 @@ class NewsFeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Updating...")
+        refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        
+        
         fetchData()
     }
 
+    @objc func refresh() {
+        fetchData()
+        refreshControl?.endRefreshing()
+    }
+    
     private func fetchData() {
         let feedParser = FeedParser()
         feedParser.parseFeed(url: "http://www.vesti.ru/vesti.rss") { (rssItems) in
             self.rssItems = rssItems
             OperationQueue.main.addOperation {
-                self.tableView.reloadSections(IndexSet(integer: 0), with: .right)
+                self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
             }
         }
     }
