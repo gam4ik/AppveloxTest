@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jW0-4F-fGp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sSC-jD-jeF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -57,13 +57,97 @@
                             <outlet property="delegate" destination="jW0-4F-fGp" id="1g2-zx-G1x"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="News" id="bdT-Qk-JvJ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="rectangle.stack" catalog="system" id="8Sw-kc-2iZ">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showCategories:" destination="jW0-4F-fGp" id="9MA-zn-J8P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="yyd-0f-aCM" kind="presentation" identifier="detailSegue" modalPresentationStyle="fullScreen" id="Wef-E6-9Y7"/>
+                        <segue destination="aGW-6e-1b8" kind="showDetail" identifier="categorySegue" id="nVp-rT-yfd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rk2-il-U4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="363.768115942029" y="128.57142857142856"/>
+            <point key="canvasLocation" x="1273.913043478261" y="128.57142857142856"/>
+        </scene>
+        <!--Category View Controller-->
+        <scene sceneID="E2m-l6-bdG">
+            <objects>
+                <viewController id="aGW-6e-1b8" customClass="CategoryViewController" customModule="AppveloxTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EMI-Zh-MyM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WUv-rU-WDQ">
+                                <rect key="frame" x="0.0" y="50" width="414" height="792"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="categoryCell" id="Bf1-Ry-zIZ" customClass="CategoryTableViewCell" customModule="AppveloxTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bf1-Ry-zIZ" id="IAa-OI-Ynf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Py-Pl-19X">
+                                                    <rect key="frame" x="20" y="11" width="71" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Py-Pl-19X" firstAttribute="top" secondItem="IAa-OI-Ynf" secondAttribute="topMargin" id="3hP-XS-Y4f"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="4Py-Pl-19X" secondAttribute="trailing" constant="303" id="Ex6-XR-IrL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4Py-Pl-19X" secondAttribute="bottom" constant="0.5" id="Kd6-ze-1h7"/>
+                                                <constraint firstItem="4Py-Pl-19X" firstAttribute="leading" secondItem="IAa-OI-Ynf" secondAttribute="leadingMargin" id="dPR-Sa-f9v"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryLabel" destination="4Py-Pl-19X" id="FYY-Rh-D4J"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aGW-6e-1b8" id="pn1-0f-tBy"/>
+                                    <outlet property="delegate" destination="aGW-6e-1b8" id="AVN-CR-I6S"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGG-jE-XF1">
+                                <rect key="frame" x="19" y="10" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton" destination="aGW-6e-1b8" eventType="touchUpInside" id="bV0-53-yT8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WUv-rU-WDQ" firstAttribute="top" secondItem="kGG-jE-XF1" secondAttribute="bottom" constant="10" id="3e3-eh-gBW"/>
+                            <constraint firstAttribute="bottom" secondItem="WUv-rU-WDQ" secondAttribute="bottom" id="7hO-qQ-wzr"/>
+                            <constraint firstItem="WUv-rU-WDQ" firstAttribute="trailing" secondItem="3no-es-yYD" secondAttribute="trailing" id="IKq-ST-PYA"/>
+                            <constraint firstItem="3no-es-yYD" firstAttribute="trailing" secondItem="kGG-jE-XF1" secondAttribute="trailing" constant="347" id="KWs-JG-iST"/>
+                            <constraint firstItem="kGG-jE-XF1" firstAttribute="top" secondItem="3no-es-yYD" secondAttribute="top" constant="10" id="O9f-Hk-apl"/>
+                            <constraint firstItem="WUv-rU-WDQ" firstAttribute="leading" secondItem="3no-es-yYD" secondAttribute="leading" id="QvR-fQ-7Zj"/>
+                            <constraint firstItem="kGG-jE-XF1" firstAttribute="leading" secondItem="3no-es-yYD" secondAttribute="leading" constant="19" id="lhV-IX-jh6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3no-es-yYD"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="WUv-rU-WDQ" id="VzB-ai-eOP"/>
+                        <segue destination="m8d-d6-CZZ" kind="unwind" identifier="unwindToNewsFeedSegue" unwindAction="unwindToNewsFeed:" id="BFE-ge-td7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ouc-WV-6s0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="m8d-d6-CZZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="823"/>
         </scene>
         <!--News Detail-->
         <scene sceneID="tXP-QK-N9V">
@@ -149,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXo-YM-Xaf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047.826086956522" y="128.57142857142856"/>
+            <point key="canvasLocation" x="2957.971014492754" y="128.57142857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="THH-uV-173">
@@ -167,7 +251,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBI-f1-Tuv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137.68115942029" y="128.57142857142856"/>
+            <point key="canvasLocation" x="2047.826086956522" y="128.57142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1jC-ca-RQD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sSC-jD-jeF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RD0-Sk-HdX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jW0-4F-fGp" kind="relationship" relationship="rootViewController" id="vjD-uD-YFP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DW1-JS-XIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="363.768115942029" y="128.57142857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rectangle.stack" catalog="system" width="128" height="122"/>
+    </resources>
 </document>

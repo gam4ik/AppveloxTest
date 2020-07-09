@@ -16,6 +16,8 @@
 		844098BC249199A000CF0A52 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844098BB249199A000CF0A52 /* NewsFeedTableViewCell.swift */; };
 		844098BE249199C300CF0A52 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844098BD249199C300CF0A52 /* DetailViewController.swift */; };
 		844098C024919E2400CF0A52 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844098BF24919E2400CF0A52 /* FeedParser.swift */; };
+		844098F124B72AFD00CF0A52 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844098F024B72AFC00CF0A52 /* CategoryViewController.swift */; };
+		844098F324B72B1D00CF0A52 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844098F224B72B1D00CF0A52 /* CategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		844098BB249199A000CF0A52 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		844098BD249199C300CF0A52 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		844098BF24919E2400CF0A52 /* FeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
+		844098F024B72AFC00CF0A52 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		844098F224B72B1D00CF0A52 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				844098B9249174A000CF0A52 /* NewsFeedTableViewController.swift */,
 				844098BB249199A000CF0A52 /* NewsFeedTableViewCell.swift */,
 				844098BD249199C300CF0A52 /* DetailViewController.swift */,
+				844098F024B72AFC00CF0A52 /* CategoryViewController.swift */,
+				844098F224B72B1D00CF0A52 /* CategoryTableViewCell.swift */,
 				844098AB2491740A00CF0A52 /* Main.storyboard */,
 				844098AE2491740C00CF0A52 /* Assets.xcassets */,
 				844098B02491740C00CF0A52 /* LaunchScreen.storyboard */,
@@ -149,10 +155,12 @@
 			files = (
 				844098C024919E2400CF0A52 /* FeedParser.swift in Sources */,
 				844098A62491740A00CF0A52 /* AppDelegate.swift in Sources */,
+				844098F124B72AFD00CF0A52 /* CategoryViewController.swift in Sources */,
 				844098BA249174A000CF0A52 /* NewsFeedTableViewController.swift in Sources */,
 				844098BE249199C300CF0A52 /* DetailViewController.swift in Sources */,
 				844098BC249199A000CF0A52 /* NewsFeedTableViewCell.swift in Sources */,
 				844098A82491740A00CF0A52 /* SceneDelegate.swift in Sources */,
+				844098F324B72B1D00CF0A52 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

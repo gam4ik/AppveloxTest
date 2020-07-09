@@ -9,6 +9,7 @@
 import Foundation
 
 struct RSSItem {
+    let category: String
     let title: String
     let pubDate: String
     let text: String
@@ -19,6 +20,11 @@ class FeedParser: NSObject, XMLParserDelegate {
     private var rssItems: [RSSItem] = []
     private var currentElement = ""
     
+    private var currentCategory = "" {
+        didSet {
+            currentCategory = currentCategory.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }
+    }
     private var currentTitle = "" {
         didSet {
             currentTitle = currentTitle.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -62,6 +68,7 @@ class FeedParser: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
         if currentElement == "item" {
+            currentCategory = ""
             currentTitle = ""
             currentText = ""
             currentPubDate = ""
@@ -78,6 +85,7 @@ class FeedParser: NSObject, XMLParserDelegate {
         switch currentElement {
         case "title": currentTitle += string
         case "pubDate": currentPubDate += string
+        case "category": currentCategory += string
         case "yandex:full-text": currentText += string
         default: break
         }
@@ -85,7 +93,7 @@ class FeedParser: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
-            let rssItem = RSSItem(title: currentTitle, pubDate: currentPubDate, text: currentText, image: currentImage)
+            let rssItem = RSSItem(category: currentCategory, title: currentTitle, pubDate: currentPubDate, text: currentText, image: currentImage)
             rssItems.append(rssItem)
         }
     }
